@@ -1,0 +1,50 @@
+<div class="container">
+<form #Product="ngForm" (ngSubmit)="submit()">
+
+  <div class="form-group">
+    <label for="productCode">Product Code</label>
+    <input type="text" id="productCode" class="form-control" ngModel name="productCode" #productCode="ngModel" (change)="log(productCode)"
+      minlength="5" required pattern="^[a-zA-Z].*$"/>
+    <div class="alert alert-danger" *ngIf="productCode.touched && !productCode.valid">
+      <div *ngIf="productCode.errors.required">
+        Product code is required.
+      </div>
+      <div *ngIf="productCode.errors.pattern">
+        Product code shold start with letter.
+      </div>
+      <div *ngIf="productCode.errors.minlength">
+        Product code should be minimum {{ productCode.errors.minlength.requiredLength }} characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input type="text" id="productName" class="form-control" ngModel name="productName" #productName="ngModel" (change)="log(productName)" required/>
+    <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">
+      <div *ngIf="productName.errors.required">
+        Product name is required.
+      </div>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" id="price" class="form-control" ngModel name="price" #price="ngModel" (change)="log(price)" min="1"/>
+    <div class="alert alert-danger" *ngIf="price.touched && !price.valid">
+      <div *ngIf="price.errors.min">
+        price should be > 0
+      </div>
+      </div>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input ngModel type="checkbox" name="isDiscounted"> Discounted
+    </label>
+  </div>
+  <button class="btn btn-primary" >Submit</button>
+</form>
+
+<p>
+</p>
+</div>

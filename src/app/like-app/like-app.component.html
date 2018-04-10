@@ -1,0 +1,49 @@
+<div class="container">
+  
+  <div class="appTitle">
+    <h1>
+      {{ title }}!
+    </h1>
+  </div>
+  <div class="form-group row">
+    <button type="button" class="btn btn-default btn-lg" (click)= "isClicked = !isClicked ">
+      <span class="glyphicon glyphicon-heart like" aria-hidden="true" [ngClass]="{like: isClicked, dislike: !isClicked,  animated:isClicked, bounce:isClicked}"></span>
+      <label [ngClass]="{show: isClicked, hide: !isClicked}">Liked</label>
+    </button>
+  </div>
+  <br>
+  <div class="form-group row">
+    <button type="button" *ngFor="let i of stars" class="btn btn-default btn-lg" value="i" (click)="isRated(i)">
+      <span class="glyphicon" aria-hidden="true" [ngClass]="{'glyphicon-star-empty': !isRatedStar[i], 'glyphicon-star': isRatedStar[i]}"></span>
+    </button>
+    <!--
+    <button type="button" class="btn btn-default btn-lg" value="2" (click)="isRated(1)">
+      <span class="glyphicon" aria-hidden="true" [ngClass]="{'glyphicon-star-empty': !isRatedStar[1], 'glyphicon-star': isRatedStar[1]}"></span>
+    </button>
+    <button type="button" class="btn btn-default btn-lg" value="3" (click)="isRated(2)">
+      <span class="glyphicon" aria-hidden="true" [ngClass]="{'glyphicon-star-empty': !isRatedStar[2], 'glyphicon-star': isRatedStar[2]}"></span>
+    </button>
+    <button type="button" class="btn btn-default btn-lg" value="2" (click)="isRated(3)">
+      <span class="glyphicon" aria-hidden="true" [ngClass]="{'glyphicon-star-empty': !isRatedStar[3], 'glyphicon-star': isRatedStar[3]}"></span>
+    </button>
+    <button type="button" class="btn btn-default btn-lg" value="3" (click)="isRated(4)">
+      <span class="glyphicon" aria-hidden="true" [ngClass]="{'glyphicon-star-empty': !isRatedStar[4], 'glyphicon-star': isRatedStar[4]}"></span>
+    </button>
+  -->
+  </div>
+  
+  
+  <br>
+  <div class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="txtRating" class="sr-only">Rating: </label>
+      <input id="txtRating" class="form-control form-control-lg" type="number" [(ngModel)]="rating" keyboardType="number" min="0">
+      <button type="button" class="btn btn-default mb-2" (click)= "isRated(rating-1)">Rate</button>
+      
+    </div>
+  </div>
+</div>
+
+
+
+

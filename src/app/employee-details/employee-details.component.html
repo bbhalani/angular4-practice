@@ -1,0 +1,34 @@
+
+<form [formGroup]="form">
+
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" class="form-control firstname" formControlName="firstName" [value]="employee.firstName" disabled>
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">
+          First name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" class="form-control" formControlName="lastName" [value]="employee.lastName" disabled/>
+      <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+        <div *ngIf="lastName.errors.required">
+          Last name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="designation">Designation</label>
+      <input type="text" id="designation" class="form-control" formControlName="designation"  [value]="employee.designation" disabled="true"/>
+      <div class="alert alert-danger" *ngIf="designation.touched && !designation.valid">
+        <div *ngIf="designation.errors.required">
+          Designation required
+        </div>
+      </div>
+    </div>  
+    <div>
+        <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="editDetails()" formControlName="Edit" value="Edit">Edit</button>
+    </div>
+  </form>

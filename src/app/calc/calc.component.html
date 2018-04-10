@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  
+  <div class="appTitle">
+    <h1>
+      {{ title }}!
+    </h1>
+  </div>
+  
+  <div class="form-group row">
+    <label for="txtNumber1" class="col-sm-4 col-form-label">Enter first number</label>
+    <div class="col-sm-8">
+      <input id="txtNumber1"class="form-control form-control-lg" type="number" [(ngModel)]="a" keyboardType="number">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="txtNumber2" class="col-sm-4 col-form-label">Enter second number</label>
+    <div class="col-sm-8">
+      <input id="txtNumber2" class="form-control form-control-lg" type="number" [(ngModel)]="b" keyboardType="number">
+    </div>
+  </div>
+  <div class='wrapper text-center'>
+    
+    <button type="button" class="btn btn-primary btn-lg" on-click="addition()">Add</button>
+    <button type="button" class="btn btn-primary btn-lg" on-click="subtract()">Subtract</button>
+    <button type="button" class="btn btn-primary btn-lg" on-click="multiply()">Multiply</button>
+    <button type="button" class="btn btn-primary btn-lg" on-click="devide()">Devide</button>
+    
+  </div>
+  <br>
+  <h1>Result: <span class="badge badge-default">{{c}}</span></h1>
+  
+</div>
